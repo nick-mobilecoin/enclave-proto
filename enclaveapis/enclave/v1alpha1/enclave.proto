@@ -6,11 +6,11 @@ import "attest/v1alpha1/attest.proto";
 
 // A continuous stream with an Enclave
 service EnclaveStreamService {
-    rpc DoStuff(stream StuffRequest) returns (stream StuffResponse);
+    rpc Stream(stream StreamRequest) returns (stream StreamResponse);
 }
 
 service EnclaveUnaryService {
-    rpc DoStuff(ActualRequest) returns (ActualResponse);
+    rpc Actual(ActualRequest) returns (ActualResponse);
 }
 
 // Place holder for now
@@ -23,14 +23,14 @@ message ActualResponse {
     bytes stuff = 1;
 }
 
-message StuffRequest {
+message StreamRequest {
     oneof request {
         attest.v1alpha1.AttestRequest attest = 1;
         ActualRequest actual = 2;
     }
 }
 
-message StuffResponse {
+message StreamResponse {
     oneof response {
         attest.v1alpha1.AttestResponse attest = 1;
         ActualResponse actual = 2;

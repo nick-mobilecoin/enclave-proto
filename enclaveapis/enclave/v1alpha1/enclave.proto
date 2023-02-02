@@ -1,6 +1,10 @@
 // A continuous stream with an Enclave
-service EnclaveStream {
+service EnclaveStreamService {
     rpc DoStuff(stream StuffRequests) return (stream StuffResponse);
+}
+
+service EnclaveUnaryService {
+    rpc DoStuff(ActualRequest) return (ActualResponse);
 }
 
 // Place holder for now

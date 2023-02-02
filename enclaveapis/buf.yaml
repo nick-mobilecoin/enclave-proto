@@ -1,8 +1,8 @@
 version: v1
-name: buf.build/nick-mc/petapis
+name: buf.build/nick-mc/enclaveapis
 deps:
   - buf.build/googleapis/googleapis
-  - buf.build/nick-mc/paymentapis
+  - buf.build/nick-mc/attestapis
 breaking:
   use:
     - FILE

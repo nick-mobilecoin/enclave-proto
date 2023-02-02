@@ -6,7 +6,7 @@ import "attest/v1alpha1/attest.proto";
 
 // A continuous stream with an Enclave
 service EnclaveStreamService {
-    rpc DoStuff(stream StuffRequests) returns (stream StuffResponse);
+    rpc DoStuff(stream StuffRequest) returns (stream StuffResponse);
 }
 
 service EnclaveUnaryService {
@@ -18,17 +18,22 @@ message ActualRequest {
     bytes stuff = 1;
 }
 
+// Place holder for now
+message ActualResponse {
+    bytes stuff = 1;
+}
+
 message StuffRequest {
-    oneof {
-        AttestRequest,
-        ActualRequest,
+    oneof request {
+        attest.v1alpha1.AttestRequest attest = 1;
+        ActualRequest actual = 2;
     }
 }
 
 message StuffResponse {
-    oneof {
-        AttestResponse,
-        ActualResponse,
+    oneof response {
+        attest.v1alpha1.AttestResponse attest = 1;
+        ActualResponse actual = 2;
     }
 }
                    

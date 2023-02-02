@@ -1,0 +1,31 @@
+// A continuous stream with an Enclave
+service EnclaveStream {
+    rpc DoStuff(stream StuffRequests) return (stream StuffResponse);
+}
+
+// Place holder for now
+message ActualRequest {
+    bytes stuff = 1;
+}
+
+message StuffRequest {
+    oneof {
+        AttestRequest,
+        ActualRequest,
+    }
+}
+
+message StuffResponse {
+    oneof {
+        AttestResponse,
+        ActualResponse,
+    }
+}
+                   
+message AttestedMessage {
+    bytes   ciphertext = 1;
+    bytes   channel_id = 2;
+    bytes   aad = 3;
+    fixed64 nonce = 4;
+}
+

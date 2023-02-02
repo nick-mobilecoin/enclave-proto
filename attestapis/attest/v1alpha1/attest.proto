@@ -1,0 +1,49 @@
+// Attest with an enclave
+service Attest {
+    rpc Attest(AttestRequest) returns (AttestResponse);
+    rpc MutualAttest(MutualAttestRequest) returns (AttestResponse);
+}
+
+message MutualAttestRequest {
+    bytes noise = 1;
+    AttestationEvidence evidence = 2;
+    // FIXME: need "evidence attachment" data structure w/ digestible hash in the quote.
+    //        This will complicate the handling of this in an AKE.
+}
+
+message AttestResponse {
+    bytes noise = 1;
+    AttestationEvidence evidence = 2;
+    // FIXME: need per-app "evidence attachment" data structure w/ digestible hash in the quote
+    //        This will complicate the handling of this in an AKE.
+}
+
+
+message AttestRequest {
+    bytes noise = 1;
+}
+
+message AttestionEvidence {
+    oneof {
+        QuoteV3Evidence = 3,
+    }
+}
+
+message SignedJson {
+    bytes          signature = 1,
+    string         json = 2,
+    repeated bytes der_chain = 3,
+}
+
+QuoteV3Evidence {
+    QuoteV3 quote = 1
+    TcbInfo tcb = 2,
+}
+
+message QuoteV3 {
+    bytes quote = 1;
+}
+
+message TcbInfo {
+    SignedJson tcb = 1;
+}

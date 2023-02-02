@@ -1,0 +1,11 @@
+version: v1
+name: buf.build/nick-mc/petapis
+deps:
+  - buf.build/googleapis/googleapis
+  - buf.build/nick-mc/paymentapis
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT

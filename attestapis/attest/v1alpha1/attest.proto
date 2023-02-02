@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package attest.v1;
+package attest.v1alpha1;
 
 // Attest with an enclave
 service Attest {

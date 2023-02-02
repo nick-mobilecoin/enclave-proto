@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package enclave.v1;
+package enclave.v1alpha1;
 
 import "attest/v1alpha1/attest.proto";
 

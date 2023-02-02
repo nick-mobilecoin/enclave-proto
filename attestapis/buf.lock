@@ -5,7 +5,3 @@ deps:
     owner: googleapis
     repository: googleapis
     commit: 75b4300737fb4efca0831636be94e517
-  - remote: buf.build
-    owner: nick-mc
-    repository: paymentapis
-    commit: a49edce7d31840cb80ae30961d71d1ee

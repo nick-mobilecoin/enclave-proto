@@ -1,3 +1,7 @@
+syntax = "proto3";
+
+package attest.v1;
+
 // Attest with an enclave
 service Attest {
     rpc Attest(AttestRequest) returns (AttestResponse);

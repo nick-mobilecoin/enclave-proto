@@ -1,10 +1,16 @@
+syntax = "proto3";
+
+package enclave.v1;
+
+import "attest/v1alpha1/attest.proto";
+
 // A continuous stream with an Enclave
 service EnclaveStreamService {
-    rpc DoStuff(stream StuffRequests) return (stream StuffResponse);
+    rpc DoStuff(stream StuffRequests) returns (stream StuffResponse);
 }
 
 service EnclaveUnaryService {
-    rpc DoStuff(ActualRequest) return (ActualResponse);
+    rpc DoStuff(ActualRequest) returns (ActualResponse);
 }
 
 // Place holder for now

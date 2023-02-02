@@ -1,3 +1,7 @@
+syntax = "proto3";
+
+package attest.v1alpha1;
+
 // Attest with an enclave
 service Attest {
     rpc Attest(AttestRequest) returns (AttestResponse);
@@ -33,29 +37,29 @@ message AttestRequest {
 }
 
 // Evidence to prove correctness of enclave
-message AttestionEvidence {
-    oneof {
-        QuoteV3Evidence = 3,
+message AttestationEvidence {
+    oneof evidence {
+        QuoteV3Evidence quote3 = 1;
     }
 }
 
 // Json data with signature info
 message SignedJson {
     // Signature over the `json` field.
-    bytes          signature = 1,
+    bytes signature = 1;
     // Json contents
-    string         json = 2,
+    string         json = 2;
     // DER chain providing the signing key. The clients are responsible for
     // ensuring the correctness of the CA key.
-    repeated bytes der_chain = 3,
+    repeated bytes der_chain = 3;
 }
 
 // Attestation evidence for the quote3 version
 //
 // The quote3 version is also known as DCAP.
-QuoteV3Evidence {
-    QuoteV3 quote = 1
-    TcbInfo tcb = 2,
+message QuoteV3Evidence {
+    QuoteV3 quote = 1;
+    TcbInfo tcb = 2;
 }
 
 // Version 3 quote 

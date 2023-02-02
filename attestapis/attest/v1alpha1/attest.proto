@@ -3,9 +3,9 @@ syntax = "proto3";
 package attest.v1alpha1;
 
 // Attest with an enclave
-service Attest {
+service AttestService {
     rpc Attest(AttestRequest) returns (AttestResponse);
-    rpc MutualAttest(MutualAttestRequest) returns (AttestResponse);
+    rpc MutualAttest(MutualAttestRequest) returns (MutualAttestResponse);
 }
 
 // Request attestation between enclaves.
@@ -16,6 +16,14 @@ message MutualAttestRequest {
     bytes noise = 1;
     AttestationEvidence evidence = 2;
     // FIXME: need "evidence attachment" data structure w/ digestible hash in the quote.
+    //        This will complicate the handling of this in an AKE.
+}
+
+// Attestation evidence that needs to be verified by the recipient
+message MutualAttestResponse {
+    bytes noise = 1;
+    AttestationEvidence evidence = 2;
+    // FIXME: need per-app "evidence attachment" data structure w/ digestible hash in the quote
     //        This will complicate the handling of this in an AKE.
 }
 

@@ -22,7 +22,8 @@ message MutualAttestRequest {
 // Attestation evidence that needs to be verified by the recipient
 message MutualAttestResponse {
     bytes noise = 1;
-    AttestationEvidence evidence = 2;
+    bytes break_it = 2;
+    AttestationEvidence evidence = 3;
     // FIXME: need per-app "evidence attachment" data structure w/ digestible hash in the quote
     //        This will complicate the handling of this in an AKE.
 }

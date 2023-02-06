@@ -1,11 +1,30 @@
 syntax = "proto3";
 
-package attest.v1alpha1;
+package attest.v1;
 
 // Attest with an enclave
 service AttestService {
     rpc Attest(AttestRequest) returns (AttestResponse);
     rpc MutualAttest(MutualAttestRequest) returns (MutualAttestResponse);
+}
+
+// Message used once communication has been attested.
+message AttestedMessage {
+    // The encrypted message
+    bytes   ciphertext = 1;
+
+    // Channel ID for the session.
+    //
+    // Also called channel binding
+    bytes   channel_id = 2;
+
+    // Additional Authentication Data (aad) to use with `ciphertext`
+    bytes   aad = 3;
+
+    // Nonce for this message. 
+    //
+    // Like most nonce this should be unique per message.
+    fixed64 nonce = 4;
 }
 
 // Request attestation between enclaves.

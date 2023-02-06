@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package enclave.v1alpha1;
+package enclave.v1;
 
-import "attest/v1alpha1/attest.proto";
+import "attest/v1/attest.proto";
 
 // A continuous stream with an Enclave
 service EnclaveStreamService {
@@ -25,14 +25,14 @@ message ActualResponse {
 
 message StreamRequest {
     oneof request {
-        attest.v1alpha1.AttestRequest attest = 1;
+        attest.v1.AttestRequest attest = 1;
         ActualRequest actual = 2;
     }
 }
 
 message StreamResponse {
     oneof response {
-        attest.v1alpha1.AttestResponse attest = 1;
+        attest.v1.AttestResponse attest = 1;
         ActualResponse actual = 2;
     }
 }

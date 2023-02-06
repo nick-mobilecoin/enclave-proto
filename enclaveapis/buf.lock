@@ -8,4 +8,4 @@ deps:
   - remote: buf.build
     owner: nick-mc
     repository: attestapis
-    commit: 1e6c250af05a41cebf497f0a5bdf0e58
+    commit: 995fd3988fb24388925743514fd3aa7e

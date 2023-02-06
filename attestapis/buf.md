@@ -1,5 +1,4 @@
-## AttestAPIs
+# AttestAPIs
 
-This module contains all of the APIs required to interact with the 
+This module contains all of the APIs required to interact with the
 `AttestService`.
-

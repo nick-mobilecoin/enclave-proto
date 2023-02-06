@@ -1,0 +1,10 @@
+protos:
+  - '**.protos'
+
+dependencies:
+  - '**/buf.lock'
+
+github_actions:
+  - '.github/workflows/**'
+  - '.github/labeler.yml'
+  - '.github/triage-labeler.yml'

@@ -24,7 +24,8 @@ jobs:
         with:
           version: "1.13.1"
       - uses: bufbuild/buf-breaking-action@v1        
-          with:          # The 'main' branch of the GitHub repository that defines the module.          
+          # The 'main' branch of the GitHub repository that defines the module.          
+          with:
             against: "https://github.com/${GITHUB_REPOSITORY}.git#branch=main"
 
   markdown-lint:

@@ -8,6 +8,10 @@ service AttestService {
     rpc MutualAttest(MutualAttestRequest) returns (MutualAttestResponse);
 }
 
+service Hello {
+    rpc What(AttestRequest) returns (AttestResponse);
+}
+
 // Request attestation between enclaves.
 //
 // Used when enclaves wish to communicate with each other. The enclaves are the

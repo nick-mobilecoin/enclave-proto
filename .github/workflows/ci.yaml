@@ -22,7 +22,7 @@ jobs:
       # The 'main' branch of the GitHub repository that defines the module.
       - uses: bufbuild/buf-breaking-action@v1
         with:
-          against: "${{github.server_url}}/${{gihtub.repository}}.git#branch=main"
+          against: "${{ github.server_url }}/${{ github.repository }}.git#branch=main"
 
   markdown-lint:
     runs-on: ubuntu-22.04

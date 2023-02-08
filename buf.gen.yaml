@@ -1,0 +1,9 @@
+version: v1
+# Generated with the command
+#  `buf generate buf.build/nick-mc/enclaveapis`
+plugins:
+  - remote: buf.build/prost/plugins/prost:v0.2.1-1
+    out: gen
+  - remote: buf.build/prost/plugins/crate:v0.3.1-1
+    out: gen
+      - gen_crate="crate/Cargo.toml"
